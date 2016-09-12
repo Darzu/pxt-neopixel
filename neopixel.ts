@@ -61,12 +61,12 @@ namespace neopixel {
          * @param startHue the start hue value for the rainbow, eg: 1
          * @param endHue the end hue value for the rainbow, eg: 360
          */
-        //% blockId="neopixel_set_strip_rainbow" block="%strip|show rainbow from %startHue|to %endHue" 
+        //% blockId="neopixel_set_strip_rainbow" block="%strip|show rainbow from %startHue|to %endHue|with luminosity %lum" 
         //% weight=85 blockGap=8
         //% parts="neopixel"
-        showRainbow(startHue: number = 1, endHue: number = 360) {
-            let start = neopixel.hsl(startHue, 100, 50);
-            let end = neopixel.hsl(endHue, 100, 50);
+        showRainbow(startHue: number = 1, endHue: number = 360, lum: number = 50) {
+            let start = neopixel.hsl(startHue, 100, lum);
+            let end = neopixel.hsl(endHue, 100, lum);
             let colors = neopixel.interpolateHSL(start, end, this._length, HueInterpolationDirection.Clockwise);
             for (let i = 0; i < colors.length; i++) {
                 let hsl = colors[i];
